@@ -13,6 +13,12 @@ ENV ACTIVATOR_VER 1.3.7
 # install utilities
 RUN apt-get -y install vim git sudo zip bzip2 fontconfig curl
 
+# Install necessary tools
+RUN apt-get install -y nano wget dialog net-tools
+
+# Download and Install Nginx
+RUN apt-get install -y nginx
+
 # install maven
 RUN curl -fsSL http://archive.apache.org/dist/maven/maven-3/$MAVEN_VERSION/binaries/apache-maven-$MAVEN_VERSION-bin.tar.gz | tar xzf - -C /usr/share \
     && mv /usr/share/apache-maven-$MAVEN_VERSION /usr/share/maven \
@@ -40,8 +46,7 @@ RUN cd /opt \
    && ln -s /opt/activator-dist-${ACTIVATOR_VER} /opt/activator \
    && rm -f /opt/typesafe-activator-${ACTIVATOR_VER}.zip
 
-# Define an entry point.
-CMD ["/opt/activator/activator", "ui", "-Dhttp.address=0.0.0.0"]
+ENV PATH "$PATH:/opt/activator"
 
 # configure the "devbox" user
 RUN groupadd devbox && useradd devbox -s /bin/bash -m -g devbox -G devbox && adduser devbox sudo
@@ -56,6 +61,6 @@ RUN apt-get clean && \
 
 # expose the working directory, the Tomcat port, the BrowserSync ports
 VOLUME ["/home/devbox/workspace"]
-EXPOSE 8080 3000 3001 8888 9000
+EXPOSE 8080 3000 3001 8888 9000 80 443
 CMD ["tail", "-f", "/home/devbox/start.txt"]
 CMD ["/opt/activator/activator", "ui", "-Dhttp.address=0.0.0.0", "-Dorg.slf4j.simpleLogger.defaultLogLevel=trace"]

@@ -1,3 +1,0 @@
-docker pull jdubois/devbox-docker
-mkdir ~/devbox
-docker run --name devbox -w /home/devbox/app -v ~/devbox:/home/devbox/app:rw -v ~/.m2:/home/devbox/.m2:rw -p 8080:8080 -p 3000:3000 -p 3001:3001 -d -t jdubois/devbox-docker
