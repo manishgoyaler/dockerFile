@@ -8,6 +8,7 @@ ENV JAVA_HOME /usr/lib/jvm/java-8-oracle
 ENV MAVEN_VERSION 3.3.9
 ENV MAVEN_HOME /usr/share/maven
 ENV PATH "$PATH:$MAVEN_HOME/bin"
+ENV ACTIVATOR_VER 1.3.7
 
 # install utilities
 RUN apt-get -y install vim git sudo zip bzip2 fontconfig curl
@@ -32,6 +33,16 @@ RUN apt-get install -y nodejs python g++ build-essential
 # install yeoman bower grunt gulp
 RUN npm install -g yo bower grunt-cli gulp
 
+#installing activator
+RUN cd /opt \
+   && wget http://downloads.typesafe.com/typesafe-activator/${ACTIVATOR_VER}/typesafe-activator-${ACTIVATOR_VER}.zip \
+   && unzip typesafe-activator-${ACTIVATOR_VER}.zip \
+   && ln -s /opt/activator-dist-${ACTIVATOR_VER} /opt/activator \
+   && rm -f /opt/typesafe-activator-${ACTIVATOR_VER}.zip
+
+# Define an entry point.
+CMD ["/opt/activator/activator", "ui", "-Dhttp.address=0.0.0.0"]
+
 # configure the "devbox" user
 RUN groupadd devbox && useradd devbox -s /bin/bash -m -g devbox -G devbox && adduser devbox sudo
 RUN echo 'devbox:devbox' |chpasswd
@@ -45,5 +56,6 @@ RUN apt-get clean && \
 
 # expose the working directory, the Tomcat port, the BrowserSync ports
 VOLUME ["/home/devbox/workspace"]
-EXPOSE 8080 3000 3001
-CMD    ["tail", "-f", "/home/devbox/start.txt"]
+EXPOSE 8080 3000 3001 8888 9000
+CMD ["tail", "-f", "/home/devbox/start.txt"]
+CMD ["/opt/activator/activator", "ui", "-Dhttp.address=0.0.0.0", "-Dorg.slf4j.simpleLogger.defaultLogLevel=trace"]
