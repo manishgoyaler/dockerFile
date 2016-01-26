@@ -1,12 +1,19 @@
-cassandra:
+devbox-nginx:
+  image: nginx:latest
+  volumes:
+    - ~/devbox/nginx/nginx.conf:/etc/nginx/nginx.conf
+    - ~/devbox/nginx/html:/usr/share/nginx/html
+  ports:
+    - "80:80"
+    - "443:443"
+devbox-cassandra:
   image: cassandra:latest
   volumes:
     - ~/devbox/cassandra:/var/lib/cassandra
 devbox-docker:
-  container_name: devbox
-  image: jdubois/devbox-docker
+  build: devbox/
   volumes:
-  - ~/devbox:/home/devbox/workspace
+  - ~/devbox/workspace:/home/devbox/workspace
   - ~/.m2:/home/devbox/.m2
   ports:
   - "8080:8080"
@@ -17,4 +24,4 @@ devbox-docker:
   - "443:443"
   working_dir: /home/devbox/worspace
   links:
-    - cassandra
+    - devbox-cassandra
