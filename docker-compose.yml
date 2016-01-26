@@ -1,6 +1,5 @@
 devbox-docker:
-  container_name: devbox
-  image: jdubois/devbox-docker
+  build: devbox/
   volumes:
   - ~/devbox:/home/devbox/app
   - ~/.m2:/home/devbox/.m2
@@ -8,4 +7,4 @@ devbox-docker:
   - "8080:8080"
   - "3000:3000"
   - "3001:3001"
-  working_dir: /home/devbox/app
+  working_dir: /home/devbox/worspace
