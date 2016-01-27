@@ -17,7 +17,7 @@ RUN apt-get -y install vim git sudo zip bzip2 fontconfig curl
 RUN apt-get install -y nano wget dialog net-tools
 
 # Download and Install Nginx
-# RUN apt-get install -y nginx
+RUN apt-get install -y nginx
 
 # install maven
 RUN curl -fsSL http://archive.apache.org/dist/maven/maven-3/$MAVEN_VERSION/binaries/apache-maven-$MAVEN_VERSION-bin.tar.gz | tar xzf - -C /usr/share \

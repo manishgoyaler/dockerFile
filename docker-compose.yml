@@ -1,10 +1,10 @@
-devbox-nginx:
-  image: nginx:latest
+#devbox-nginx:
+  #image: nginx:latest
   #volumes:
     #- ~/devbox/nginx/nginx.conf:/etc/nginx/nginx.conf
     #- ~/devbox/nginx/html:/usr/share/nginx/html
-  ports:
-    - "5080:80"
+  #ports:
+    #- "5080:80"
 devbox-cassandra:
   image: cassandra:latest
   #volumes:
@@ -17,7 +17,8 @@ devbox-cassandra:
     - "9042:9042"
     - "9160:9060"
 devbox-docker:
-  build: devbox/
+  image: manishgoyaler/devbox:latest
+  #build: devbox/
   volumes:
   - ~/devbox/workspace:/home/devbox/workspace
   - ~/.m2:/home/devbox/.m2
