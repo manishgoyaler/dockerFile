@@ -8,7 +8,7 @@
 devbox-cassandra:
   image: cassandra:latest
   #volumes:
-  #  - ~/devbox/cassandra:/var/lib/cassandra
+  #- ~/devbox/cassandra:/var/lib/cassandra
   ports:
     - "7000:7000"
     - "7001:7001"
@@ -28,7 +28,7 @@ devbox-docker:
   - "3001:3001"
   - "9000:9000"
   - "8888:8888"
-  - "5080:80"  
+  - "5080:80"
   working_dir: /home/devbox/worspace
   links:
     - devbox-cassandra
