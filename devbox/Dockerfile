@@ -63,5 +63,4 @@ RUN apt-get clean && \
 VOLUME ["/home/devbox/workspace"]
 EXPOSE 8080 3000 3001 8888 9000
 CMD ["tail", "-f", "/home/devbox/start.txt"]
-CMD ["/opt/activator/activator", "ui", "-Dhttp.address=0.0.0.0", "-Dorg.slf4j.simpleLogger.defaultLogLevel=trace"]
-CMD ["/opt/activator/activator", "ui", "-Dhttp.address=0.0.0.0", "-Dorg.slf4j.simpleLogger.defaultLogLevel=trace"]
+CMD ["/opt/activator/activator", "ui"]
