@@ -10,11 +10,11 @@ devbox-cassandra:
   #volumes:
   #  - ~/devbox/cassandra:/var/lib/cassandra
   ports:
-    - "80:5080"
-    - "443:5443"
-    - "443:5443"
-    - "443:5443"
-    - "443:5443"
+    - "7000:7000"
+    - "7001:7001"
+    - "7999:7999"
+    - "9042:9042"
+    - "9061:9061"
 devbox-docker:
   build: devbox/
   volumes:
