@@ -28,6 +28,7 @@ devbox-docker:
   - "3001:3001"
   - "9000:9000"
   - "8888:8888"
+  - "5080:80"  
   working_dir: /home/devbox/worspace
   links:
     - devbox-cassandra

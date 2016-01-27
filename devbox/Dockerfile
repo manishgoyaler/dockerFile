@@ -61,6 +61,7 @@ RUN apt-get clean && \
 
 # expose the working directory, the Tomcat port, the BrowserSync ports
 VOLUME ["/home/devbox/workspace"]
-EXPOSE 8080 3000 3001 8888 9000
+EXPOSE 8080 3000 3001 8888 9000 80
 CMD ["/opt/activator/activator", "ui"]
 CMD ["cat","/home/devbox/start.txt"]
+CMD ["nginx"]
