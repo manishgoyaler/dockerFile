@@ -63,5 +63,5 @@ RUN apt-get clean && \
 VOLUME ["/home/devbox/workspace"]
 EXPOSE 8080 3000 3001 8888 9000 80
 CMD ["cat","/home/devbox/start.txt"]
-CMD ["nginx"]
-#CMD ["/opt/activator/activator", "ui"]
+# CMD ["nginx"]
+# CMD ["/opt/activator/activator", "ui"]
