@@ -1,3 +1,4 @@
+#docker-machine start default
 #for unix , mac
 #eval $(docker-machine env default)
 #For windows
