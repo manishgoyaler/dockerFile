@@ -1,5 +1,6 @@
-docker commit -m "Added devbox image" -a "Manish goyal" ba57be8a2b16 manishgoyaler/devbox2
-docker push manishgoyaler/devbox
+#docker login
+#docker commit -m "Added devbox image" -a "Manish goyal" ba57be8a2b16 manishgoyaler/devbox2
+#docker push manishgoyaler/devbox
 mkdir -p ~/devbox/cassandra
 mkdir -p ~/devbox/nginx/html
 docker run -it --link dockerfile_devbox-cassandra_1:cassandra --rm cassandra sh -c 'exec cqlsh "$CASSANDRA_PORT_9042_TCP_ADDR"'
