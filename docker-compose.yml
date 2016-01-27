@@ -1,8 +1,8 @@
 devbox-nginx:
   image: nginx:latest
-  volumes:
+  #volumes:
     #- ~/devbox/nginx/nginx.conf:/etc/nginx/nginx.conf
-    - ~/devbox/nginx/html:/usr/share/nginx/html
+    #- ~/devbox/nginx/html:/usr/share/nginx/html
   ports:
     - "5080:80"
 devbox-cassandra:
@@ -13,8 +13,9 @@ devbox-cassandra:
     - "7000:7000"
     - "7001:7001"
     - "7999:7999"
+    - "7199:7199"
     - "9042:9042"
-    - "9061:9061"
+    - "9160:9060"
 devbox-docker:
   build: devbox/
   volumes:
