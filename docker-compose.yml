@@ -4,6 +4,8 @@ devbox-docker:
   volumes:
   - ~/devbox/workspace:/home/devbox/workspace
   - ~/.m2:/home/devbox/.m2
+  - ~/devbox/cassandra:/home/devbox/cassandra
+  - ~/devbox/nginx:/home/devbox/nginx
   ports:
   - "8080:8080"
   - "8443:8443"
@@ -16,6 +18,6 @@ devbox-docker:
   - "7001:7001"
   - "9042:9042"
   - "54338:54338"
-  working_dir: /home/devbox/worspace
+  working_dir: /home/devbox/workspace
   #links:
     #- devbox-cassandra

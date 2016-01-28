@@ -59,6 +59,8 @@ RUN apt-get install cassandra-tools ## Optional utilities
 RUN groupadd devbox && useradd devbox -s /bin/bash -m -g devbox -G devbox && adduser devbox sudo
 RUN echo 'devbox:devbox' |chpasswd
 RUN mkdir -p /home/devbox/workspace
+RUN mkdir -p /home/devbox/cassandra
+RUN mkdir -p /home/devbox/nginx
 ADD start.txt /home/devbox/start.txt
 RUN cd /home && chown -R devbox:devbox /home/devbox
 

@@ -34,6 +34,6 @@ devbox-docker:
   - "7001:7001"
   - "9042:9042"
   - "54338:54338"
-  working_dir: /home/devbox/worspace
+  working_dir: /home/devbox/workspace
   #links:
     #- devbox-cassandra
