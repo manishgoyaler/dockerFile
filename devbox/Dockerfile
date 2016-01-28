@@ -63,6 +63,7 @@ RUN mkdir -p /home/devbox/cassandra
 RUN mkdir -p /home/devbox/nginx
 ADD start.txt /home/devbox/start.txt
 RUN cd /home && chown -R devbox:devbox /home/devbox
+RUN chmod -R 777 /opt/activator
 
 # clean
 RUN apt-get clean && \
@@ -72,5 +73,6 @@ RUN apt-get clean && \
 VOLUME ["/home/devbox/workspace"]
 EXPOSE 8080 8443 3000 3001 8888 9000 5080 80 54338 7000 7001 9042
 CMD ["nginx"]
+CMD ["cassandra"]
 CMD ["tail","-f","/home/devbox/start.txt"]
 # CMD ["/opt/activator/activator", "ui"]

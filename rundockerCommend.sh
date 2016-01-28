@@ -7,6 +7,8 @@
 #docker commit -m "Added devbox image" -a "Manish goyal" ba57be8a2b16 manishgoyaler/devbox2
 #docker push manishgoyaler/devbox
 mkdir -p ~/devbox/cassandra
+mkdir -p ~/devbox/nginx
+mkdir -p ~/devbox/worspace
 
 #To run on mac and unix
 #docker exec -it --user=root dockerfiles_devbox-cassandra_1 bash

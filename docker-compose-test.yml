@@ -22,6 +22,7 @@ devbox-docker:
   volumes:
   - ~/devbox/workspace:/home/devbox/workspace
   - ~/.m2:/home/devbox/.m2
+  - ~/.ivy2:/home/devbox/.ivy2
   ports:
   - "8080:8080"
   - "8443:8443"

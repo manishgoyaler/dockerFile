@@ -6,6 +6,8 @@ devbox-docker:
   - ~/.m2:/home/devbox/.m2
   - ~/devbox/cassandra:/home/devbox/cassandra
   - ~/devbox/nginx:/home/devbox/nginx
+  - ~/.ivy2:/home/devbox/.ivy2
+  - ~/.sbt:/home/devbox/.sbt    
   ports:
   - "8080:8080"
   - "8443:8443"
