@@ -1,13 +1,39 @@
+#devbox-nginx:
+  #image: nginx:latest
+  #volumes:
+    #- ~/devbox/nginx/nginx.conf:/etc/nginx/nginx.conf
+    #- ~/devbox/nginx/html:/usr/share/nginx/html
+  #ports:
+    #- "5080:80"
+#devbox-cassandra:
+  #image: cassandra:latest
+  #volumes:
+  #- ~/devbox/cassandra:/var/lib/cassandra
+  #ports:
+    #- "7000:7000"
+    #- "7001:7001"
+    #- "7999:7999"
+    #- "7199:7199"
+    #- "9042:9042"
+    #- "9160:9160"
 devbox-docker:
   image: manishgoyaler/devbox:latest
+  #build: devbox/
   volumes:
   - ~/devbox/workspace:/home/devbox/workspace
   - ~/.m2:/home/devbox/.m2
   ports:
   - "8080:8080"
+  - "8443:8443"
   - "3000:3000"
   - "3001:3001"
   - "9000:9000"
   - "8888:8888"
-  #- "5080:80"
+  - "5080:80"
+  - "7000:7000"
+  - "7001:7001"
+  - "9042:9042"
+  - "54338:54338"
   working_dir: /home/devbox/worspace
+  #links:
+    #- devbox-cassandra

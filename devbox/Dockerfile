@@ -52,7 +52,7 @@ ENV PATH "$PATH:/opt/activator"
 RUN echo "deb http://debian.datastax.com/community stable main" | tee -a /etc/apt/sources.list.d/cassandra.sources.list
 RUN curl -L https://debian.datastax.com/debian/repo_key | apt-key add -
 RUN apt-get update
-RUN apt-get install dsc30
+RUN apt-get -q -y install dsc30
 RUN apt-get install cassandra-tools ## Optional utilities
 
 # configure the "devbox" user
@@ -68,7 +68,7 @@ RUN apt-get clean && \
 
 # expose the working directory, the Tomcat port, the BrowserSync ports
 VOLUME ["/home/devbox/workspace"]
-EXPOSE 8080 3000 3001 8888 9000 5080 80
+EXPOSE 8080 8443 3000 3001 8888 9000 5080 80 54338 7000 7001 9042
 CMD ["nginx"]
 CMD ["tail","-f","/home/devbox/start.txt"]
 # CMD ["/opt/activator/activator", "ui"]

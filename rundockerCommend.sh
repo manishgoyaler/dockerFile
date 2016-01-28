@@ -9,14 +9,12 @@
 mkdir -p ~/devbox/cassandra
 
 #To run on mac and unix
-docker run -it --link dockerfiles_devbox-cassandra_1:cassandra --rm cassandra sh -c 'exec cqlsh "$CASSANDRA_PORT_9042_TCP_ADDR"'
-docker exec -it --user=root dockerfiles_devbox-cassandra_1 bash
+#docker exec -it --user=root dockerfiles_devbox-cassandra_1 bash
 docker exec -it --user=root dockerfiles_devbox-docker_1 bash
 #docker run --rm -it manishgoyaler/devbox  bash
 #To exit bash shell "exit" command or enter Ctrl-D
 
 #To run on windows
-winpty docker run -it --link dockerfiles_devbox-cassandra_1:cassandra --rm cassandra sh -c 'exec cqlsh "$CASSANDRA_PORT_9042_TCP_ADDR"'
-winpty docker exec -it --user=root dockerfiles_devbox-cassandra_1 bash
+#winpty docker exec -it --user=root dockerfiles_devbox-cassandra_1 bash
 winpty docker exec -it --user=root dockerfiles_devbox-docker_1 bash
 #To exit bash shell "exit" command or enter Ctrl-
